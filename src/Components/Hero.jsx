@@ -1,6 +1,4 @@
 import React from "react";
-import { FaArrowDown } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
 
 function Hero() {
   return (

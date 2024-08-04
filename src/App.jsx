@@ -1,13 +1,22 @@
 import React from "react";
-import { Hero, Navbar, Services } from "./Components";
+import {
+  Hero,
+  Navbar,
+  ReviewsSection,
+  Services,
+  Testimonials,
+} from "./Components";
 
 function App() {
   return (
-    <div className="relative">
-      <Navbar />
-      <Hero />
-      <Services />
-    </div>
+    <>
+      <div className="relative">
+        <Navbar />
+        <Hero />
+        <Services />
+        <ReviewsSection />
+      </div>
+    </>
   );
 }
 

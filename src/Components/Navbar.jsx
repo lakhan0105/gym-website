@@ -8,12 +8,15 @@ function Navbar() {
       <h2>logo</h2>
 
       {/* nav links */}
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 capitalize">
         <li>
           <a href="#">Home</a>
         </li>
         <li>
           <a href="#services">Services</a>
+        </li>
+        <li>
+          <a href="#reviews">reviews</a>
         </li>
         <li>
           <a href="#">Contact us</a>

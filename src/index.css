@@ -13,7 +13,22 @@ body {
 .section-center {
   /* border: 1px solid; */
   width: 100%;
-  max-width: 1270px;
+  max-width: 1240px;
   /* padding: 1em; */
   margin: auto;
 }
+
+/* .carousel-track {
+  display: flex;
+  animation: scroll-left 50s linear infinite;
+  gap: 16px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+} */

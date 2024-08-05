@@ -8,13 +8,13 @@ const socialLinks = [
   { icon: <MdMailOutline />, link: "#" },
 ];
 
-function Sociallinks({ extraClass }) {
+function Sociallinks({ extraClass, toggleSidebar }) {
   return (
     <ul className={`flex gap-5 ${extraClass}`}>
       {socialLinks.map((item) => {
         const { icon, link } = item;
         return (
-          <li>
+          <li onClick={toggleSidebar}>
             <a href={link}>{icon}</a>
           </li>
         );

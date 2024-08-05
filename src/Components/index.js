@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Navlinks from "./Navlinks";
 import ReviewsSection from "./ReviewsSection";
 import Services from "./Services";
+import Sidebar from "./Sidebar";
 import Testimonials from "./Testimonials";
 
 export {
@@ -14,4 +15,5 @@ export {
   ReviewsSection,
   Testimonials,
   ContactSection,
+  Sidebar
 };

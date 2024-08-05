@@ -2,7 +2,7 @@ import React from "react";
 
 // Images import
 import fitnessExp from "../assets/madan.webp";
-import transformations from "../assets/transformations.png";
+import transformations from "../assets/transformations.webp";
 
 const servicesDetails = [
   {
@@ -35,7 +35,6 @@ const servicesDetails = [
 function Services() {
   return (
     <section className="text-white section-center pt-20" id="services">
-      {/* map through the servicesDetails array */}
       {servicesDetails.map((service) => {
         const { serviceName, serviceImg, serviceInfo, otherInfoArray } =
           service;
@@ -43,14 +42,14 @@ function Services() {
         return (
           <div
             key={serviceName}
-            className="flex justify-between items-start gap-4 mb-24 even:flex-row-reverse"
+            className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb-24 md:even:flex-row-reverse"
           >
-            <div className="max-w-[50%]">
+            <div className="w-full md:max-w-[50%]">
               <h2 className="text-4xl mb-2 capitalize ">{serviceName}</h2>
               <p className="mb-4">{serviceInfo}</p>
 
               {/* other info */}
-              <div className="flex flex-wrap gap-4  max-w-[90%]">
+              <div className="flex flex-wrap gap-4  md:max-w-[90%]">
                 {otherInfoArray.map((item) => {
                   return (
                     <p

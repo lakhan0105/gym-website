@@ -1,0 +1,63 @@
+import React from "react";
+import { FaC, FaPhone } from "react-icons/fa6";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaClock } from "react-icons/fa";
+
+import locationImg from "../assets/location.webp";
+
+const contactInfo = [
+  { icon: <FaPhone />, info: "08123425611" },
+  {
+    icon: <FaLocationDot />,
+    info: "30/31, main road, opp. keb, above adishwar whitefield, Mahadevapura Layout, Garudachar Palya, Mahadevapura, Bengaluru, Karnataka 560048",
+    moreInfo: "Near Phoenix Market City - Mahadevapura",
+  },
+  {
+    icon: <FaClock />,
+    info: "5:30am - 10pm",
+    moreInfo: "Open 7 days of the week",
+  },
+];
+
+function ContactSection() {
+  return (
+    <div className="section-center text-white md:pb-32" id="contactus">
+      <div className="w-[90%] md:w-[89%] m-auto md:flex justify-between md:gap-7 rounded-md overflow-hidden">
+        {/* IMAGE */}
+        <div className="md:w-[630px] h-[350px] md:h-auto">
+          <img
+            src={locationImg}
+            className="h-full object-cover"
+            alt="image not found"
+          />
+        </div>
+
+        {/* CONTACT INFO */}
+        <div className="w-full md:w-[40%] p-3 md:p-0 bg-[#ffffff] text-black md:bg-transparent md:text-white">
+          <h1 className="text-3xl md:text-4xl mb-3">Get in touch with us</h1>
+
+          {contactInfo.map((item) => {
+            const { icon, info, moreInfo } = item;
+            return (
+              <div className="flex gap-2 mb-4">
+                <span className="inline-block py-1">{icon}</span>
+                <div>
+                  <p>{info}</p>
+                  <span className="mt-1 italic">{moreInfo}</span>
+                </div>
+              </div>
+            );
+          })}
+
+          <a href="https://maps.app.goo.gl/XrYkPQmeajTUmihs9">
+            <button className="ml-6 mt-3 border rounded p-1 px-2 text-sm">
+              Open in maps
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ContactSection;

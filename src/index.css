@@ -11,11 +11,12 @@ body {
 }
 
 .section-center {
-  /* border: 1px solid; */
   width: 100%;
   max-width: 1240px;
-  /* padding: 1em; */
   margin: auto;
+  margin-bottom: 4rem;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 /* .carousel-track {

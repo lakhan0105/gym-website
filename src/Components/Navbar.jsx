@@ -1,48 +1,17 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { MdMailOutline } from "react-icons/md";
+
+import Navlinks from "./Navlinks";
+import Sociallinks from "./Sociallinks";
+import Logo from "./Logo";
 
 function Navbar() {
   return (
-    <div className="fixed top-0 bg- text-white text-xl z-10 w-full h-[60px] px-10 flex items-center justify-between bg-black">
-      <h2>logo</h2>
-
-      {/* nav links */}
-      <ul className="flex gap-5 capitalize">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#services">Services</a>
-        </li>
-        <li>
-          <a href="#reviews">reviews</a>
-        </li>
-        <li>
-          <a href="#">Contact us</a>
-        </li>
-      </ul>
-
-      {/* social links */}
-      <ul className="flex gap-5">
-        <li>
-          <a href="#">
-            <FaWhatsapp />
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <FaInstagram />
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            <MdMailOutline />
-          </a>
-        </li>
-      </ul>
+    <div className="section-center fixed top-0 text-white text-xl z-10 h-[60px] px-3 flex items-center justify-between bg-black">
+      <Logo />
+      <Navlinks extraClass={"hidden md:block md:flex"} />
+      <Sociallinks extraClass={"hidden md:block md:flex"} />
+      
+      <button className="md:hidden">button</button>
     </div>
   );
 }

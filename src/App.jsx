@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ContactSection,
   Hero,
   Navbar,
   ReviewsSection,
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <Services />
         <ReviewsSection />
+        <ContactSection />
       </div>
     </>
   );

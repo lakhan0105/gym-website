@@ -6,7 +6,6 @@ import {
   ReviewsSection,
   Services,
   Sidebar,
-  Testimonials,
 } from "./Components";
 
 function App() {

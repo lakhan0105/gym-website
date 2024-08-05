@@ -1,11 +1,13 @@
 import React from "react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
 
 const socialLinks = [
-  { icon: <FaWhatsapp />, link: "#" },
-  { icon: <FaInstagram />, link: "#" },
-  { icon: <MdMailOutline />, link: "#" },
+  {
+    icon: <FaInstagram />,
+    link: "https://www.instagram.com/msfitnessbengaluru?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  },
+  // { icon: <MdMailOutline />, link: "#" },
 ];
 
 function Sociallinks({ extraClass, toggleSidebar }) {

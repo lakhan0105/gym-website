@@ -1,5 +1,5 @@
 import React from "react";
-import { FaC, FaPhone } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa";
 
@@ -32,6 +32,7 @@ function ContactSection() {
           <a href="https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FPKVy7xsZBczgvUsu7%3Fg_st%3Dic&e=AT1aKN-sQKasq-FgFgidP3qOqY9ZG44KOCjVtneMl4vGkBAmvnsZCjWCfX3a22vlibEsqbKxk96ifT10CbIwxAuK9E4tYxkZiu08mw">
             <img
               src={locationImg}
+              loading="lazy"
               className="h-full object-cover"
               alt="image not found"
             />
@@ -58,7 +59,7 @@ function ContactSection() {
           })}
 
           <a href="https://maps.app.goo.gl/XrYkPQmeajTUmihs9">
-            <button className="ml-6 mt-3 border rounded p-1 px-2 text-sm">
+            <button className="ml-6 mt-3 border rounded p-1 px-2 text-sm bg-[#000000e1] text-white hover:bg-[#000] hover:shadow-md hover:md:bg-white hover:md:text-black">
               Open in maps
             </button>
           </a>

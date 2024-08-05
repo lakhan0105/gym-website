@@ -65,7 +65,12 @@ function Services() {
 
             {/* image container */}
             <div className="block max-w-[580px]">
-              <img src={serviceImg} alt="not found" className="w-full h-full" />
+              <img
+                src={serviceImg}
+                loading="lazy"
+                alt="not found"
+                className="w-full h-full"
+              />
             </div>
           </div>
         );

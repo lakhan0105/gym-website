@@ -1,8 +1,13 @@
 import React from "react";
+import heroImg from "../assets/hero.webp";
 
 function Hero() {
+  console.log(heroImg);
   return (
-    <section className="bg-[url('src/assets/DEEE3033-08BE-4EAC-BBE3-3F19D124B34A_1_201_a.jpeg')] bg-no-repeat bg-center h-[100vh] bg-cover relative">
+    <section
+      style={{ backgroundImage: `url(${heroImg})` }}
+      className={`bg-no-repeat bg-center h-[100vh] bg-cover relative`}
+    >
       {/* overlay layer */}
       <div className="bg-black absolute left-0 right-0 top-0 bottom-0 opacity-55"></div>
 

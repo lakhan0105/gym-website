@@ -21,19 +21,22 @@ const contactInfo = [
 
 function ContactSection() {
   return (
-    <div className="section-center text-white md:pb-32" id="contactus">
-      <h1 className="text-3xl md:text-4xl text-center mb-3 md:hidden">
+    <section
+      className="section-center text-white md:pb-32 mb-32"
+      id="contactus"
+    >
+      <h1 className="text-[2rem] md:text-4xl text-center mb-4 md:hidden">
         Get in touch with us
       </h1>
 
-      <div className="w-[90%] md:w-[89%] m-auto md:flex justify-between md:gap-7 rounded-md overflow-hidden">
+      <div className="w-[95%] md:w-[89%] m-auto md:flex justify-between md:gap-7 rounded-md overflow-hidden">
         {/* IMAGE */}
-        <div className="md:w-[630px] h-[350px] md:h-auto">
+        <div className="md:w-[630px]">
           <a href="https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FPKVy7xsZBczgvUsu7%3Fg_st%3Dic&e=AT1aKN-sQKasq-FgFgidP3qOqY9ZG44KOCjVtneMl4vGkBAmvnsZCjWCfX3a22vlibEsqbKxk96ifT10CbIwxAuK9E4tYxkZiu08mw">
             <img
               src={locationImg}
               loading="lazy"
-              className="h-full object-cover"
+              className="h-full"
               alt="image not found"
             />
           </a>
@@ -48,11 +51,13 @@ function ContactSection() {
           {contactInfo.map((item) => {
             const { icon, info, moreInfo } = item;
             return (
-              <div className="flex gap-2 mb-4">
+              <div className="flex gap-2 mb-4 text-sm md:text-md">
                 <span className="inline-block py-1">{icon}</span>
                 <div>
-                  <p>{info}</p>
-                  <span className="mt-1 italic">{moreInfo}</span>
+                  <p className="">{info}</p>
+                  <span className="mt-1 italic text-slate-600 md:text-slate-300">
+                    {moreInfo}
+                  </span>
                 </div>
               </div>
             );
@@ -65,7 +70,7 @@ function ContactSection() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

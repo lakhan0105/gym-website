@@ -34,7 +34,7 @@ const servicesDetails = [
 
 function Services() {
   return (
-    <section className="text-white section-center pt-20" id="services">
+    <section className="text-white section-center pt-16 md:pt-20 px-2" id="services">
       {servicesDetails.map((service) => {
         const { serviceName, serviceImg, serviceInfo, otherInfoArray } =
           service;
@@ -45,11 +45,15 @@ function Services() {
             className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb-24 md:even:flex-row-reverse"
           >
             <div className="w-full md:max-w-[50%]">
-              <h2 className="text-4xl mb-2 capitalize ">{serviceName}</h2>
-              <p className="mb-4">{serviceInfo}</p>
+              <h2 className="text-3xl md:text-4xl mb-2 capitalize ">
+                {serviceName}
+              </h2>
+              <p className="text-sm md:text-md mb-4 max-w-[95%]">
+                {serviceInfo}
+              </p>
 
               {/* other info */}
-              <div className="flex flex-wrap gap-4  md:max-w-[90%]">
+              <div className="flex flex-wrap gap-2 md:gap-4  md:max-w-[90%] text-sm md:text-md">
                 {otherInfoArray.map((item) => {
                   return (
                     <p

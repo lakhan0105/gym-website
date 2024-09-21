@@ -34,7 +34,10 @@ const servicesDetails = [
 
 function Services() {
   return (
-    <section className="text-white section-center pt-16 md:pt-20 px-2" id="services">
+    <section className="text-white pt-16 md:pt-28 px-2 relative" id="services">
+      {/* top-gradient */}
+      <div className="absolute top-0 left-0 right-0 h-[16%] bg-gradient-to-b from-[#000000d8] to-transparent z-20"></div>
+
       {servicesDetails.map((service) => {
         const { serviceName, serviceImg, serviceInfo, otherInfoArray } =
           service;
@@ -42,7 +45,7 @@ function Services() {
         return (
           <div
             key={serviceName}
-            className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb-24 md:even:flex-row-reverse"
+            className="section-center flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb-24 md:even:flex-row-reverse"
           >
             <div className="w-full md:max-w-[50%]">
               <h2 className="text-3xl md:text-4xl mb-2 capitalize ">

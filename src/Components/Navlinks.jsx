@@ -9,12 +9,12 @@ const navLinks = [
 
 function Navlinks({ extraClass, toggleSidebar }) {
   return (
-    <ul className={`flex gap-5 capitalize ${extraClass}`}>
+    <ul className={`flex gap-8 capitalize ${extraClass}`}>
       {navLinks.map((item) => {
         const { linkName, link } = item;
         return (
           <li onClick={toggleSidebar}>
-            <a href={link}>{linkName}</a>
+            <a href={link} className="text-xl ">{linkName}</a>
           </li>
         );
       })}

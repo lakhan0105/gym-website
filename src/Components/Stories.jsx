@@ -4,11 +4,11 @@ import React from "react";
 import fitnessExp from "../assets/madan.webp";
 import transformations from "../assets/transformations.webp";
 
-const servicesDetails = [
+const storyDetails = [
   {
-    serviceName: "inspiring transformations",
-    serviceImg: transformations,
-    serviceInfo:
+    storyName: "inspiring transformations",
+    storyImg: transformations,
+    storyInfo:
       "Our guidance, state-of-the-art equipment, and personalized training plans have helped numerous individuals transform their lives. Whether it's weight loss, muscle gain, or overall fitness, our success stories are a testament to the effectiveness of our approach.",
     otherInfoArray: [
       "personal training",
@@ -19,9 +19,9 @@ const servicesDetails = [
     ],
   },
   {
-    serviceName: "meet our champion trainer",
-    serviceImg: fitnessExp,
-    serviceInfo:
+    storyName: "meet our champion trainer",
+    storyImg: fitnessExp,
+    storyInfo:
       "Our expert trainer is not just any coach; he's a celebrated champion in the bodybuilding community. With numerous accolades to his name, he brings a wealth of experience and a proven track record of success. His dedication to fitness and unparalleled guidance will inspire you to achieve your fitness goals.",
     otherInfoArray: [
       "Mr. Bangalore BB 2023 Gold",
@@ -32,28 +32,25 @@ const servicesDetails = [
   },
 ];
 
-function Services() {
+function Stories() {
   return (
-    <section className="text-white pt-16 md:pt-28 px-2 relative" id="services">
+    <section className="text-white pt-10 md:pt-28 px-2 relative" id="services">
       {/* top-gradient */}
       <div className="absolute top-0 left-0 right-0 h-[16%] bg-gradient-to-b from-[#000000d8] to-transparent z-20"></div>
 
-      {servicesDetails.map((service) => {
-        const { serviceName, serviceImg, serviceInfo, otherInfoArray } =
-          service;
+      {storyDetails.map((story) => {
+        const { storyName, storyImg, storyInfo, otherInfoArray } = story;
 
         return (
           <div
-            key={serviceName}
-            className="section-center flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb-24 md:even:flex-row-reverse"
+            key={storyName}
+            className="section-center flex flex-col-reverse md:flex-row justify-between items-start gap-4 mb- md:even:flex-row-reverse"
           >
             <div className="w-full md:max-w-[50%]">
               <h2 className="text-3xl md:text-4xl mb-2 capitalize ">
-                {serviceName}
+                {storyName}
               </h2>
-              <p className="text-sm md:text-md mb-4 max-w-[95%]">
-                {serviceInfo}
-              </p>
+              <p className="text-sm md:text-md mb-4 max-w-[95%]">{storyInfo}</p>
 
               {/* other info */}
               <div className="flex flex-wrap gap-2 md:gap-4  md:max-w-[90%] text-sm md:text-md">
@@ -73,7 +70,7 @@ function Services() {
             {/* image container */}
             <div className="block max-w-[580px]">
               <img
-                src={serviceImg}
+                src={storyImg}
                 loading="lazy"
                 alt="not found"
                 className="w-full h-full"
@@ -86,4 +83,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default Stories;

@@ -27,7 +27,7 @@ function Hero() {
         className="absolute right-0 bottom-0 min-h-full min-w-full z-10"
       ></video>
 
-      <div className="absolute flex flex-col items-center left-[50%] bottom-20 translate-x-[-50%] z-50 text-white">
+      <div className="absolute flex flex-col items-center left-[50%] bottom-28 translate-x-[-50%] z-40 text-white text-center">
         <h2 className="uppercase text-7xl font-bold flex items-center gap-3 italic">
           push your limits
         </h2>
@@ -37,22 +37,21 @@ function Hero() {
           <span className="inline-block w-[100px] h-[1px] bg-white text-white "></span>
         </h3>
         <div className="flex gap-4 text-lg max-w-[70%] text-center">
-          {/* <span>&#8226; personal-training</span>
-          <span>&#8226; modern-equipments</span>
-          <span>&#8226; nutritional-solutions</span> */}
           Experience personalized training with cutting-edge equipment, and
           achieve your fitness goals faster with expert nutritional solutions.
         </div>
       </div>
 
-      <div className="absolute bottom-[0%] left-[47%] z-30 cursor-pointer text-xl">
+      <div className="absolute bottom-[5%] left-[47%] z-30 cursor-pointer text-xl">
         <button className="relative px-3 py-1 text-lg mt-8 bg-[#D32F2F] text-white hover:bg-[#B71C1C] uppercase font-semibold rounded">
           Join now
         </button>
 
         {/* arrow is relative to the join button (above) */}
         <span className="absolute bottom-[-70%] left-[50%] translate-x-[-50%] text-center text-white">
-          <FaArrowDown />
+          <a href="#services">
+            <FaArrowDown />
+          </a>
         </span>
       </div>
     </section>

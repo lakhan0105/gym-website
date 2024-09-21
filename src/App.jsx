@@ -4,7 +4,7 @@ import {
   Hero,
   Navbar,
   ReviewsSection,
-  Services,
+  Stories,
   Sidebar,
 } from "./Components";
 
@@ -22,7 +22,7 @@ function App() {
       <div className="relative">
         <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <Hero />
-        <Services />
+        <Stories />
         <ReviewsSection />
         <ContactSection />
         <Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />

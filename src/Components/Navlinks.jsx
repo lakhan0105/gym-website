@@ -1,10 +1,9 @@
 import React from "react";
 
 const navLinks = [
-  { linkName: "home", link: "#" },
-  { linkName: "services", link: "#services" },
+  { linkName: "transformations", link: "#services" },
   { linkName: "reviews", link: "#reviews" },
-  { linkName: "contact us", link: "#contactus" },
+  { linkName: "location", link: "#contactus" },
 ];
 
 function Navlinks({ extraClass, toggleSidebar }) {
@@ -14,7 +13,9 @@ function Navlinks({ extraClass, toggleSidebar }) {
         const { linkName, link } = item;
         return (
           <li onClick={toggleSidebar}>
-            <a href={link} className="text-xl ">{linkName}</a>
+            <a href={link} className="text-xl ">
+              {linkName}
+            </a>
           </li>
         );
       })}

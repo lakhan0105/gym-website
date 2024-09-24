@@ -53,7 +53,7 @@ function Stories() {
               <p className="text-sm md:text-md mb-4 max-w-[95%]">{storyInfo}</p>
 
               {/* other info */}
-              <div className="flex flex-wrap gap-2 md:gap-4  md:max-w-[90%] text-sm md:text-md">
+              {/* <div className="flex flex-wrap gap-2 md:gap-4  md:max-w-[90%] text-sm md:text-md">
                 {otherInfoArray.map((item) => {
                   return (
                     <p
@@ -64,7 +64,7 @@ function Stories() {
                     </p>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
 
             {/* image container */}

@@ -6,6 +6,7 @@ import ReviewsSection from "./ReviewsSection";
 import Stories from "./Stories";
 import Sidebar from "./Sidebar";
 import Testimonials from "./Testimonials";
+import PlansSection from "./PlansSection";
 
 export {
   Hero,
@@ -16,4 +17,5 @@ export {
   Testimonials,
   ContactSection,
   Sidebar,
+  PlansSection,
 };

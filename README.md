@@ -1,42 +1,51 @@
-# Gym website 
+# Gym website
 
-This is a website for a gym named ms-fitness. 
+This is a website for a gym named ms-fitness.
 This website is created using React and Tailwind CSS
 
-
 <!-- temp -->
-import React, { useEffect } from "react";
+<h1 className="text-[2rem] md:text-4xl text-center mb-4 md:hidden">
+        Get in touch with us
+      </h1>
 
-<script type="text/javascript" src="https://testimonial.to/js/iframeResizer.min.js"></script>
-<iframe id="testimonialto-embed-text--0" src="https://embed-v2.testimonial.to/t/-O3OPDIDsJZBiIxoWYV4?design=" frameborder="0" scrolling="no" width="100%"></iframe>
-<script type="text/javascript">iFrameResize({log: false, checkOrigin: false}, "#testimonialto-embed-text--O3OPDIDsJZBiIxoWYV4");</script>
+      <div className="w-[95%] md:w-[89%] m-auto md:flex justify-between md:gap-7 rounded-md overflow-hidden">
+        {/* IMAGE */}
+        <div className="md:w-[630px]">
+          <a href="https://l.instagram.com/?u=https%3A%2F%2Fmaps.app.goo.gl%2FPKVy7xsZBczgvUsu7%3Fg_st%3Dic&e=AT1aKN-sQKasq-FgFgidP3qOqY9ZG44KOCjVtneMl4vGkBAmvnsZCjWCfX3a22vlibEsqbKxk96ifT10CbIwxAuK9E4tYxkZiu08mw">
+            <img
+              src={locationImg}
+              loading="lazy"
+              className="h-full"
+              alt="image not found"
+            />
+          </a>
+        </div>
 
-const testimonialsData = [
-  `<script type="text/javascript" src="https://testimonial.to/js/iframeResizer.min.js"></script>
-  <iframe id="testimonialto-embed-text--0" src="https://embed-v2.testimonial.to/t/-O3OPDIDsJZBiIxoWYV4?design=" frameborder="0" scrolling="no" width="100%" style="min-height: 400px;"></iframe>
-  <script type="text/javascript">iFrameResize({log: false, checkOrigin: false}, "#testimonialto-embed-text--0");</script>`,
-  `<script type="text/javascript" src="https://testimonial.to/js/iframeResizer.min.js"></script>
-  <iframe id="testimonialto-embed-text--1" src="https://embed-v2.testimonial.to/t/-O3OPDIDsJZBiIxoWYV4?design=" frameborder="0" scrolling="no" width="100%" style="min-height: 400px;"></iframe>
-  <script type="text/javascript">iFrameResize({log: false, checkOrigin: false}, "#testimonialto-embed-text--1");</script>`,
-  // Add more testimonial embed codes as needed
-];
+        {/* CONTACT INFO */}
+        <div className="w-full md:w-[40%] p-3 md:p-0 bg-[#ffffff] text-black md:bg-transparent md:text-white">
+          <h1 className="text-3xl md:text-4xl mb-3 hidden md:block">
+            Get in touch with us
+          </h1>
 
-function Testimonials() {
+          {contactInfo.map((item) => {
+            const { icon, info, moreInfo } = item;
+            return (
+              <div className="flex gap-2 mb-4 text-sm md:text-md">
+                <span className="inline-block py-1">{icon}</span>
+                <div>
+                  <p className="">{info}</p>
+                  <span className="mt-1 italic text-slate-600 md:text-slate-300">
+                    {moreInfo}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
 
-
-  return (
-    <div className="w-full">
-      {testimonialsData.map((item, index) => (
-        <div
-          key={index}
-          className="mb-10"
-          dangerouslySetInnerHTML={{
-            __html: item,
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-}
-
-export default Testimonials;
+          <a href="https://maps.app.goo.gl/XrYkPQmeajTUmihs9">
+            <button className="ml-6 mt-3 border rounded p-1 px-2 text-sm bg-[#000000e1] text-white hover:bg-[#000] hover:shadow-md hover:md:bg-white hover:md:text-black">
+              Open in maps
+            </button>
+          </a>
+        </div>
+      </div>

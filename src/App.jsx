@@ -3,10 +3,11 @@ import {
   ContactSection,
   Hero,
   Navbar,
-  ReviewsSection,
   Stories,
   Sidebar,
+  PlansSection,
 } from "./Components";
+import ProgramsSection from "./Components/ProgramsSection";
 
 function App() {
   const [isSidebarOpen, setisSidebarOpen] = useState(false);
@@ -23,7 +24,8 @@ function App() {
         <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
         <Hero />
         <Stories />
-        <ReviewsSection />
+        <ProgramsSection />
+        <PlansSection />
         <ContactSection />
         <Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
       </div>

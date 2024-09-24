@@ -2,6 +2,7 @@ import React from "react";
 
 const navLinks = [
   { linkName: "transformations", link: "#services" },
+  { linkName: "programs", link: "#programs" },
   { linkName: "reviews", link: "#reviews" },
   { linkName: "location", link: "#contactus" },
 ];

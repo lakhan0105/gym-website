@@ -5,7 +5,7 @@ import AdditionalPgms from "./AdditionalPgms";
 function ProgramsSection() {
   return (
     <section
-      className="relative section-center pt-14 pb-14 min-h-full"
+      className="relative section-cente pt-14 pb-14 min-h-full"
       id="programs"
     >
       <h2 className="text-center text-4xl md:text-5xl text-white font-sans font-bold mb-10">

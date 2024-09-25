@@ -46,14 +46,14 @@ function PlansSection() {
         </div>
 
         {/* right */}
-        <div className="w-[75%] md:w-[30%] text-white font-sans">
+        <div className="w-[90%] md:w-[30%] text-white font-sans">
           {/* plan cards */}
           {plansData?.map((planData) => {
             const { id, planPrice, planFeatures } = planData;
             return (
               <div
                 key={id}
-                className="w-[90%] md:w-auto p-5 rounded-lg ring-1 ring-white/30 bg-[#2a2a2a]/60 backdrop-blur-md mb-8 md:mb-12"
+                className="w-full md:w-auto p-5 rounded-lg ring-1 ring-white/30 bg-[#2a2a2a]/60 backdrop-blur-md mb-8 md:mb-12"
               >
                 <h3 className="text-4xl font-bold">₹{planPrice}/year</h3>
                 <div className="h-[0.5px] my-3 ring- w-full bg-gray-100/40"></div>

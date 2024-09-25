@@ -32,28 +32,28 @@ const plansData = [
 
 function PlansSection() {
   return (
-    <section className="section-center min-h-[calc(80vh-70px)] flex items-center">
-      <div className="flex justify-center items-center gap-10">
+    <section className="section-center min-h-[calc(80vh-70px)] flex items-center justify-center">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10">
         {/* left */}
-        <div className="w-[60%] h-[500px] relative">
+        <div className="w-[90%] md:w-[60%] h-[400px] md:h-[500px] relative">
           <div className="w-full h-full relative">
             <img
               className="w-full h-full object-cover rounded-lg"
               src={gymBgImg}
-              alt=""
+              alt="not found"
             />
           </div>
         </div>
 
         {/* right */}
-        <div className="w-[30%] text-white mt-0 font-sans">
+        <div className="w-[75%] md:w-[30%] text-white font-sans">
           {/* plan cards */}
           {plansData?.map((planData) => {
             const { id, planPrice, planFeatures } = planData;
             return (
               <div
                 key={id}
-                className="p-5 rounded-lg ring-1 ring-white/30 bg-[#2a2a2a]/60 backdrop-blur-md mb-12"
+                className="w-[90%] md:w-auto p-5 rounded-lg ring-1 ring-white/30 bg-[#2a2a2a]/60 backdrop-blur-md mb-8 md:mb-12"
               >
                 <h3 className="text-4xl font-bold">₹{planPrice}/year</h3>
                 <div className="h-[0.5px] my-3 ring- w-full bg-gray-100/40"></div>

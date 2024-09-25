@@ -7,7 +7,7 @@ import Sociallinks from "./Sociallinks";
 function Sidebar({ toggleSidebar, isSidebarOpen }) {
   return (
     <div
-      className={`fixed top-0 h-screen left-0 right-0 bg-white z-10 flex flex-col text-xl md:hidden ${
+      className={`fixed top-0 h-screen left-0 right-0 bg-white z-50 flex flex-col text-xl md:hidden ${
         isSidebarOpen ? "flex" : "hidden"
       }`}
     >

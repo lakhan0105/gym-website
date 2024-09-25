@@ -32,8 +32,8 @@ function Hero() {
       </div>
 
       {/* hero text */}
-      <div className="absolute flex flex-col items-center justify-center left-[50%] w-[95%] bottom-36 md:bottom-28 translate-x-[-50%] z-40 text-white text-center">
-        <h2 className="uppercase text-7xl font-bold flex items-center gap-3 italic">
+      <div className="absolute flex flex-col items-center justify-center left-[50%] w-[95%] bottom-32 md:bottom-28 translate-x-[-50%] z-40 text-white text-center">
+        <h2 className="uppercase text-6xl font-bold flex items-center gap-3 italic">
           push your limits
         </h2>
 
@@ -42,7 +42,7 @@ function Hero() {
           at msfitness
           <span className="inline-block w-[50px] md:w-[100px] h-[1px] bg-white text-white "></span>
         </h3>
-        <div className="flex gap-4 text-lg max-w-[70%] md:max-w-[50%] text-center">
+        <div className="flex gap-4 text-lg max-w-[80%] md:max-w-[50%] text-center">
           Experience personalized training with modern equipments, and achieve
           your fitness goals.
         </div>

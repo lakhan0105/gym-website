@@ -20,7 +20,7 @@ function CardsContainer() {
   ];
 
   return (
-    <div className="flex justify-center gap-10 bg-blac mb-12">
+    <div className="flex justify-center gap-4 md:gap-10 mb-12 ">
       {cardsData.map((cardData) => {
         return <SingleCard {...cardData} />;
       })}

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
-  ContactSection,
   Hero,
   Navbar,
   Stories,
   Sidebar,
   PlansSection,
-} from "./Components";
+  LocationSection,
+} from "./Components/index";
 import ProgramsSection from "./Components/ProgramsSection";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Stories />
         <ProgramsSection />
         <PlansSection />
-        <ContactSection />
+        <LocationSection />
         <Sidebar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
       </div>
     </>

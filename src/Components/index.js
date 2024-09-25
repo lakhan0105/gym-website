@@ -1,4 +1,3 @@
-import ContactSection from "./ContactSection";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import Navlinks from "./Navlinks";
@@ -7,6 +6,7 @@ import Stories from "./Stories";
 import Sidebar from "./Sidebar";
 import Testimonials from "./Testimonials";
 import PlansSection from "./PlansSection";
+import LocationSection from "./LocationSection";
 
 export {
   Hero,
@@ -15,7 +15,7 @@ export {
   Stories,
   ReviewsSection,
   Testimonials,
-  ContactSection,
   Sidebar,
   PlansSection,
+  LocationSection,
 };

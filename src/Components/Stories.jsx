@@ -34,7 +34,7 @@ const storyDetails = [
 
 function Stories() {
   return (
-    <section className="text-white pt-28 px-6 px-2 relative" id="services">
+    <section className="text-white pt-28 px-6 px-2 relative" id="stories">
       {/* top-gradient */}
       <div className="absolute top-0 left-0 right-0 h-[16%] bg-gradient-to-b from-[#000000d8] to-transparent z-20"></div>
 

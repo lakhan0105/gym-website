@@ -1,10 +1,10 @@
 import React from "react";
 
 const navLinks = [
-  { linkName: "transformations", link: "#services" },
+  { linkName: "stories", link: "#stories" },
   { linkName: "programs", link: "#programs" },
-  { linkName: "reviews", link: "#reviews" },
-  { linkName: "location", link: "#contactus" },
+  { linkName: "plans", link: "#plans" },
+  { linkName: "location", link: "#location" },
 ];
 
 function Navlinks({ extraClass, toggleSidebar }) {

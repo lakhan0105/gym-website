@@ -32,7 +32,10 @@ const plansData = [
 
 function PlansSection() {
   return (
-    <section className="section-center min-h-[calc(80vh-70px)] flex items-center justify-center">
+    <section
+      className="section-center min-h-[calc(80vh-70px)] flex items-center justify-center"
+      id="plans"
+    >
       <div className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10">
         {/* left */}
         <div className="w-[90%] md:w-[60%] h-[400px] md:h-[500px] relative">

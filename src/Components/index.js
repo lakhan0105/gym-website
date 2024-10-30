@@ -13,6 +13,8 @@ import ProgramsSection from "./LandingComponents/ProgramsSection";
 import Login from "./Auth/Login";
 import Dashboard from "./Dashboard";
 import RootLayout from "./RootLayout";
+import ContextProvider from "./Context/ContextProvider";
+import FormRow from "./reUsables/FormRow";
 
 export {
   Hero,
@@ -30,4 +32,6 @@ export {
   Login,
   Dashboard,
   RootLayout,
+  ContextProvider,
+  FormRow,
 };

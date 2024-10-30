@@ -9,7 +9,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Dashboard, Landing, Login, RootLayout } from "./Components/index.js";
+import {
+  ContextProvider,
+  Dashboard,
+  Landing,
+  Login,
+  RootLayout,
+} from "./Components/index.js";
 
 // create router
 const router = createBrowserRouter(
@@ -23,9 +29,11 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </RouterProvider>
+  <React.StrictMode>
+    <ContextProvider>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </ContextProvider>
+  </React.StrictMode>
 );

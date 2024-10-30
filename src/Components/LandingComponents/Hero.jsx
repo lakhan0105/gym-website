@@ -1,10 +1,9 @@
 import React from "react";
-import heroImg from "../assets/hero.webp";
-import bgVideo from "../assets/ms-fitness-bg-video.mp4";
+import heroImg from "../../assets/hero.webp";
+import bgVideo from "../../assets/ms-fitness-bg-video.mp4";
 import { FaArrowDown } from "react-icons/fa";
 
 function Hero() {
-  console.log(heroImg);
   return (
     <section
       className={`relative bg-no-repeat bg-center h-[calc(100vh-60px)] md:h-[calc(100vh-100px)]`}

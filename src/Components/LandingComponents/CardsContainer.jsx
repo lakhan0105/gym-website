@@ -2,30 +2,22 @@ import React, { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
 
 // import images
-import strengthTraining from "../assets/cardImgs/strength-training.webp";
-import personalTrainer from "../assets/cardImgs/personal-trainer.webp";
-import fatLoss from "../assets/cardImgs/fatloss.webp";
+import strengthTraining from "../../assets/cardImgs/strength-training.webp";
+import personalTrainer from "../../assets/cardImgs/personal-trainer.webp";
+import fatLoss from "../../assets/cardImgs/fatloss.webp";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 
 function CardsContainer() {
   const data = [
-    {
-      title: "fat loss",
-      img: personalTrainer,
-    },
-    {
-      title: "strength",
-      img: strengthTraining,
-    },
+    { id: 1, title: "fat loss", img: personalTrainer },
+    { id: 2, title: "strength", img: strengthTraining },
   ];
 
   const [cardsData, setCardsData] = useState(data);
   const [currIndex, setCurrIndex] = useState(0);
 
   function nextCard() {
-    console.log("currIndex:", currIndex);
-
     if (currIndex >= cardsData.length - 1) {
       setCurrIndex(0);
     } else {
@@ -51,7 +43,6 @@ function CardsContainer() {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 768) {
-        console.log(window.innerWidth);
         setIsMobileView(false);
       } else {
         setIsMobileView(true);
@@ -71,6 +62,7 @@ function CardsContainer() {
         {cardsData?.map((cardData, index) => {
           return (
             <SingleCard
+              key={cardData.id}
               {...cardData}
               index={index}
               currIndex={currIndex}

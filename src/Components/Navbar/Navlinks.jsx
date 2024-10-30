@@ -13,7 +13,7 @@ function Navlinks({ extraClass, toggleSidebar }) {
       {navLinks.map((item) => {
         const { linkName, link } = item;
         return (
-          <li onClick={toggleSidebar}>
+          <li onClick={toggleSidebar} key={linkName}>
             <a href={link} className="text-xl ">
               {linkName}
             </a>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import Navlinks from "./Navlinks";
-import Sociallinks from "./Sociallinks";
+// import Navlinks from "./Navlinks";
+// import Sociallinks from "./Sociallinks";
 import Logo from "./Logo";
+
+import { Navlinks, Sociallinks } from "../index";
 
 import { FaBars } from "react-icons/fa6";
 
@@ -32,6 +34,8 @@ function Navbar({ toggleSidebar }) {
       <button className="md:hidden text-2xl" onClick={toggleSidebar}>
         <FaBars />
       </button>
+
+      {/* admin login btn */}
     </div>
   );
 }

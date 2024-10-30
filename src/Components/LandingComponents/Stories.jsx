@@ -1,8 +1,8 @@
 import React from "react";
 
 // Images import
-import fitnessExp from "../assets/madan.webp";
-import transformations from "../assets/transformations.webp";
+import fitnessExp from "../../assets/madan.webp";
+import transformations from "../../assets/transformations.webp";
 
 const storyDetails = [
   {

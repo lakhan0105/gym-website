@@ -1,7 +1,7 @@
 import React from "react";
 
 // import map image
-import mapImg from "../assets/map2.webp";
+import mapImg from "../../assets/map2.webp";
 
 function LocationSection() {
   return (

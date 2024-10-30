@@ -1,6 +1,6 @@
 import React from "react";
 
-import gymBgImg from "../assets/fitness-exp3.webp";
+import gymBgImg from "../../assets/fitness-exp3.webp";
 
 // import icons
 import { FaLocationDot } from "react-icons/fa6";

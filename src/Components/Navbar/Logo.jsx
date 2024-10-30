@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/ms-fitness-logo.jpg";
+import logo from "../../assets/ms-fitness-logo.jpg";
 
 function Logo() {
   return (

@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormRow from "../reUsables/FormRow";
 import { useMyContext } from "../Context/ContextProvider";
+import { Account } from "appwrite";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Login() {
-  const { loginUser } = useMyContext();
-
+  const navigate = useNavigate();
+  const { currUser, setCurrUser, client } = useMyContext();
   const [formData, setFormData] = useState({ email: "", password: "" });
 
-  // handle formdata change
+  // when this page loads, check if the user is already loggedin, if yes then take him to "/"
+  useEffect(() => {
+    if (currUser) {
+      navigate("/");
+    }
+  }, [currUser]);
+
+  // handle formdata change``
   function handleFormData(e) {
     const key = e.target.name;
     setFormData((prev) => {
@@ -16,9 +26,28 @@ function Login() {
   }
 
   // handleLogin
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
-    loginUser(formData);
+    const account = new Account(client);
+    const { email, password } = formData;
+
+    try {
+      const result = await account.createEmailPasswordSession(
+        email, // email
+        password // password
+      );
+
+      if (result) {
+        setCurrUser({
+          userId: result?.userId,
+          userEmail: result?.providerUid,
+        });
+        toast.info("login successfull!");
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

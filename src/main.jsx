@@ -17,6 +17,9 @@ import {
   RootLayout,
 } from "./Components/index.js";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // create router
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <RouterProvider router={router}>
         <App />
       </RouterProvider>
+      <ToastContainer />
     </ContextProvider>
   </React.StrictMode>
 );

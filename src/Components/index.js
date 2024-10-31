@@ -15,6 +15,7 @@ import Dashboard from "./Dashboard";
 import RootLayout from "./RootLayout";
 import ContextProvider from "./Context/ContextProvider";
 import FormRow from "./reUsables/FormRow";
+import LogoutBtn from "./Auth/LogoutBtn";
 
 export {
   Hero,
@@ -34,4 +35,5 @@ export {
   RootLayout,
   ContextProvider,
   FormRow,
+  LogoutBtn,
 };

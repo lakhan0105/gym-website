@@ -23,28 +23,8 @@ function ContextProvider({ children }) {
     }
   }, [currUser]);
 
-  // function to login
-  async function loginUser(formData) {
-    const account = new Account(client);
-    const { email, password } = formData;
-
-    console.log(formData);
-    try {
-      const result = await account.createEmailPasswordSession(
-        email, // email
-        password // password
-      );
-
-      if (result) {
-        setCurrUser({ userId: result?.userId, userEmail: result?.providerUid });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
-    <myContext.Provider value={{ loginUser, currUser }}>
+    <myContext.Provider value={{ currUser, setCurrUser, client }}>
       {children}
     </myContext.Provider>
   );

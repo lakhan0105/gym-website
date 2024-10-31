@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-// import Navlinks from "./Navlinks";
-// import Sociallinks from "./Sociallinks";
 import Logo from "./Logo";
-
-import { Navlinks, Sociallinks } from "../index";
+import { LogoutBtn, Navlinks, Sociallinks } from "../index";
 
 import { FaBars } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
+import { useMyContext } from "../Context/ContextProvider";
 
 function Navbar({ toggleSidebar }) {
   const [scrollDownColor, setScrollDownColor] = useState(null);
+  const { currUser } = useMyContext();
 
   useEffect(() => {
     return document.addEventListener("scroll", () => {
@@ -28,14 +27,26 @@ function Navbar({ toggleSidebar }) {
     >
       <Logo />
       <Navlinks extraClass={"hidden md:block md:flex"} />
-      <Sociallinks extraClass={"hidden md:block md:flex"} />
 
       {/* hamburger */}
       <button className="md:hidden text-2xl" onClick={toggleSidebar}>
         <FaBars />
       </button>
 
-      {/* admin login btn */}
+      <div className="flex items-center gap-5">
+        <Sociallinks extraClass={"hidden md:block md:flex"} />
+
+        {/* login link (show oly if user is not loggedin) */}
+        {!currUser && (
+          <NavLink
+            to={"/login"}
+            className={"bg-orange-800 rounded text-base px-2 py-0.5"}
+          >
+            admin login
+          </NavLink>
+        )}
+        <LogoutBtn />
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import moment from "moment";
 import StatusComponent from "./StatusComponent";
 import React, { useEffect, useState } from "react";
 import { useMyContext } from "./Context/ContextProvider";
+import { FaEdit } from "react-icons/fa";
 
 function TableDataRow({ SL, $id, memberName, startDate, endDate, plan }) {
   const { showModal, setShowModal, setEditingData } = useMyContext();
@@ -42,22 +43,24 @@ function TableDataRow({ SL, $id, memberName, startDate, endDate, plan }) {
         {remDays} {remDays <= 1 ? "day" : "days"}
       </p>
 
-      <button
-        className="absolute right-1 top-1 border"
-        onClick={() => {
-          setShowModal(true);
-          setEditingData({
-            sl: SL,
-            id: $id,
-            name: memberName,
-            startDate,
-            endDate,
-            plan,
-          });
-        }}
-      >
-        edit
-      </button>
+      <div className="absolute right-1 top-2">
+        <button
+          className=" text-lg text-orange-400 hover:text-orange-600"
+          onClick={() => {
+            setShowModal(true);
+            setEditingData({
+              sl: SL,
+              id: $id,
+              name: memberName,
+              startDate,
+              endDate,
+              plan,
+            });
+          }}
+        >
+          <FaEdit />
+        </button>
+      </div>
     </div>
   );
 }

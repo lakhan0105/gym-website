@@ -64,11 +64,11 @@ function Dashboard() {
 
   return (
     <section className="relative w-full bg-[#F7F7F7] min-h-[calc(100vh-70px)] mt-[65px]">
-      <div className="max-w-[1280px] m-auto pt-32 borde">
+      <div className="max-w-[1280px] m-auto pt-32">
         {/* container */}
         <div className="flex items-start gap-5">
           {/* (LEFT) */}
-          <div className="border bg-[#FFFFFF] rounded p-5 w-[200px] mt-14">
+          <div className=" bg-[#FFFFFF] rounded p-5 w-[200px] mt-14">
             <h2>Filters</h2>
           </div>
 

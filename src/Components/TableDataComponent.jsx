@@ -1,5 +1,4 @@
-import { Databases } from "appwrite";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useMyContext } from "./Context/ContextProvider";
 import TableDataRow from "./TableDataRow";
 

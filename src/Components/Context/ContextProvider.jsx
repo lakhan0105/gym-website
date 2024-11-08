@@ -5,7 +5,7 @@ const appwriteMsFitnessDatabaseId = import.meta.env.VITE_MS_FITNESS_DATABASE_ID;
 const appwriteMembersDataCollectionId = import.meta.env
   .VITE_MEMBERS_DATA_COLLECTION_ID;
 
-import { Client, Account, Databases } from "appwrite";
+import { Client, Account, Databases, Query } from "appwrite";
 import { addLS, getLS } from "../utils/localstorage";
 import { toast } from "react-toastify";
 
@@ -24,6 +24,7 @@ function ContextProvider({ children }) {
   const [loadingState, setLoadingState] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingData, setEditingData] = useState(null);
+  const [searchText, setSearchText] = useState("");
 
   // function to handleEditingFormData
   function handleEditingFormData(e) {
@@ -59,6 +60,7 @@ function ContextProvider({ children }) {
 
   // check if the user is present or not
   useEffect(() => {
+    setSearchText(""); // reset the searchText on page load
     checkUserStatus();
   }, []);
 
@@ -110,6 +112,51 @@ function ContextProvider({ children }) {
     }
   };
 
+  // function to search the members
+  const searchMembers = async () => {
+    let searchResult = [];
+
+    try {
+      const databases = new Databases(client);
+      if (searchText.length > 0) {
+        // search by memberName
+        const nameSearchResult = await databases.listDocuments(
+          appwriteMsFitnessDatabaseId, // databaseId
+          appwriteMembersDataCollectionId, // collectionId
+          [Query.startsWith("memberName", [searchText])] // queries
+        );
+        searchResult = [...nameSearchResult.documents];
+
+        // search by SL value (SL is stored as string in appwrite)
+        const SlSearchResult = await databases.listDocuments(
+          appwriteMsFitnessDatabaseId, // databaseId
+          appwriteMembersDataCollectionId, // collectionId
+          [Query.startsWith("SL", [searchText])] // queries
+        );
+
+        // check if the 2nd result is already present in the searchResult, if not then add the 2nd result value
+        // basically, comparing the docs id from SlSearchResult and searchResult docs id
+        SlSearchResult.documents.forEach((item) => {
+          if (!searchResult.find((doc) => doc.$id === item.$id)) {
+            searchResult.push(item);
+          }
+        });
+
+        setAllMembersData(searchResult);
+        if (searchResult?.documents?.length === 0) {
+          toast.error("user not found");
+        }
+      } else if (searchText === "") {
+        getAllMembers();
+      } else {
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("error");
+    }
+  };
+
   return (
     <myContext.Provider
       value={{
@@ -128,6 +175,9 @@ function ContextProvider({ children }) {
         editMember,
         getAllMembers,
         allMembersData,
+        searchText,
+        setSearchText,
+        searchMembers,
       }}
     >
       {children}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IoMdPersonAdd } from "react-icons/io";
 import { useMyContext } from "./Context/ContextProvider";
 import Modal from "./Modal";
-import { Databases } from "appwrite";
+import { Databases, ID } from "appwrite";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
 import TableDataComponent from "./TableDataComponent";
@@ -15,6 +15,9 @@ function Dashboard() {
     showModal,
     setShowModal,
     setEditingData,
+    searchText,
+    setSearchText,
+    searchMembers,
   } = useMyContext();
 
   // state to manage the input details of the new member inputs
@@ -49,12 +52,19 @@ function Dashboard() {
         appwriteMsFitnessDatabaseId, // databaseId
         appwriteMembersDataCollectionId, // collectionId
         uuidv4(), // documentId
-        { memberName: name, SL: Number(sl), plan, startDate, endDate } // data
+        { memberName: name, SL: sl, plan, startDate, endDate } // data
       );
 
       if (result) {
         setShowModal(false);
         toast.success("member added successfully!");
+        setNewMemberFormData({
+          sl: "",
+          name: "",
+          plan: "",
+          startDate: "",
+          endDate: "",
+        });
       }
     } catch (error) {
       toast.error("error in creating a new document");
@@ -76,7 +86,31 @@ function Dashboard() {
           <div className="w-full">
             {/* Heading and Add member button */}
             <div className="w-full flex justify-between items-center">
-              <h2 className="text-2xl font-semibold">All members</h2>
+              <div className="flex items-center gap-7">
+                <h2 className="text-2xl font-semibold">All members</h2>
+
+                {/* search container */}
+                <div className="w-[250px] flex">
+                  <input
+                    className="py-1.5 px-2 w-full rounded-l outline-none"
+                    type="text"
+                    name=""
+                    id=""
+                    value={searchText}
+                    onChange={(e) => {
+                      setSearchText(e.target.value);
+                    }}
+                    placeholder="search by name or sl"
+                  />
+                  <input
+                    type="submit"
+                    value={"Search"}
+                    onClick={searchMembers}
+                    className="px-2 bg-[#0B9FF4] text-white text-sm rounded-r hover:cursor-pointer"
+                  />
+                </div>
+              </div>
+
               <button
                 className="px-3 py-2 flex items-center gap-2 bg-[#0B9FF4] text-white rounded text-sm"
                 onClick={() => {
@@ -111,7 +145,7 @@ function Dashboard() {
                 <h2 className="grid-cell">days left</h2>
               </div>
 
-              <TableDataComponent handleAddNewMember={handleAddNewMember} />
+              <TableDataComponent />
             </div>
             <div></div>
           </div>

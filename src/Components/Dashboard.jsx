@@ -12,6 +12,9 @@ function Dashboard() {
     client,
     appwriteMsFitnessDatabaseId,
     appwriteMembersDataCollectionId,
+    showModal,
+    setShowModal,
+    setEditingData,
   } = useMyContext();
 
   // state to manage the input details of the new member inputs
@@ -23,11 +26,10 @@ function Dashboard() {
     endDate: "",
   });
 
-  // state to manage the modal
-  const [showModal, setShowModal] = useState(false);
-
   // handleNewMemberForm
   function handleNewMemberForm(e) {
+    console.log("running handleNewMemberForm");
+
     e.preventDefault();
     const key = e.target.name;
     const value = e.target.value;
@@ -79,6 +81,15 @@ function Dashboard() {
                 className="px-3 py-2 flex items-center gap-2 bg-[#0B9FF4] text-white rounded text-sm"
                 onClick={() => {
                   setShowModal(true);
+                  setEditingData(null);
+                  // reset the newMemberFormData
+                  setNewMemberFormData({
+                    sl: "",
+                    name: "",
+                    plan: "",
+                    startDate: "",
+                    endDate: "",
+                  });
                 }}
               >
                 <span className="pb-0.5 text-lg">
@@ -110,7 +121,6 @@ function Dashboard() {
       {/* MODAL */}
       {showModal && (
         <Modal
-          setShowModal={setShowModal}
           handleNewMemberForm={handleNewMemberForm}
           handleAddNewMember={handleAddNewMember}
         />

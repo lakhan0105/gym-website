@@ -1,8 +1,18 @@
 import React from "react";
 import FormRow from "./reUsables/FormRow";
 import { IoClose } from "react-icons/io5";
+import CustomForm from "./reUsables/CustomForm";
+import { useMyContext } from "./Context/ContextProvider";
 
-function Modal({ setShowModal, handleNewMemberForm, handleAddNewMember }) {
+function Modal({ handleNewMemberForm, handleAddNewMember }) {
+  const {
+    setShowModal,
+    editingData,
+    handleEditingFormData,
+    editMember,
+    getAllMembers,
+  } = useMyContext();
+
   return (
     <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center z-10 overflow-hidden">
       {/* background overlay */}
@@ -15,63 +25,30 @@ function Modal({ setShowModal, handleNewMemberForm, handleAddNewMember }) {
           className="absolute right-2 top-2 text-3xl"
           onClick={() => {
             setShowModal(false);
+            getAllMembers();
           }}
         >
           <IoClose />
         </button>
 
         <h2 className="text-2xl font-semibold text-center mt-5 mb-8">
-          Add new Member!
+          {editingData ? "Editing the member details!" : "Add new Member!"}
         </h2>
 
         {/* SL */}
-        <FormRow
-          name={"sl"}
-          label={"SL"}
-          type={"number"}
-          handleFormData={handleNewMemberForm}
-        />
 
-        {/* NAME */}
-        <FormRow
-          name={"name"}
-          label={"Enter Name"}
-          type={"text"}
-          handleFormData={handleNewMemberForm}
-        />
-
-        {/* PLAN TYPE */}
-        <FormRow
-          name={"plan"}
-          label={"Plan Type"}
-          type={"text"}
-          handleFormData={handleNewMemberForm}
-        />
-
-        {/* START DATE */}
-        <FormRow
-          name={"startDate"}
-          label={"Start Date"}
-          type={"date"}
-          handleFormData={handleNewMemberForm}
-        />
-
-        {/* END DATE */}
-        <FormRow
-          name={"endDate"}
-          label={"End Date"}
-          type={"date"}
-          handleFormData={handleNewMemberForm}
-        />
-
-        <div className="w-full text-center">
-          <button
-            className="border bg-[#0B9FF4] w-[50%] py-1 rounded-lg shadow-lg capitalize text-white"
-            onClick={handleAddNewMember}
-          >
-            submit
-          </button>
-        </div>
+        {editingData ? (
+          <CustomForm
+            handleFormData={handleEditingFormData}
+            editingData={editingData}
+            submitFunction={editMember}
+          />
+        ) : (
+          <CustomForm
+            handleFormData={handleNewMemberForm}
+            submitFunction={handleAddNewMember}
+          />
+        )}
       </div>
     </div>
   );

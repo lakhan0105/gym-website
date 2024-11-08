@@ -5,7 +5,7 @@ const appwriteMsFitnessDatabaseId = import.meta.env.VITE_MS_FITNESS_DATABASE_ID;
 const appwriteMembersDataCollectionId = import.meta.env
   .VITE_MEMBERS_DATA_COLLECTION_ID;
 
-import { Client, Account } from "appwrite";
+import { Client, Account, Databases } from "appwrite";
 import { addLS, getLS } from "../utils/localstorage";
 import { toast } from "react-toastify";
 
@@ -20,7 +20,42 @@ const account = new Account(client);
 
 function ContextProvider({ children }) {
   const [currUser, setCurrUser] = useState(getLS("currUser"));
-  const [loading, setLoading] = useState(false);
+  const [allMembersData, setAllMembersData] = useState([]);
+  const [loadingState, setLoadingState] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [editingData, setEditingData] = useState(null);
+
+  // function to handleEditingFormData
+  function handleEditingFormData(e) {
+    e.preventDefault();
+    const key = e.target.name;
+    const value = e.target.value;
+    setEditingData((prev) => {
+      return { ...prev, [key]: value };
+    });
+  }
+
+  // function to edit the member details
+  const editMember = async () => {
+    const { id, name, plan, sl, startDate, endDate } = editingData;
+
+    try {
+      const databases = new Databases(client);
+
+      const result = await databases.updateDocument(
+        appwriteMsFitnessDatabaseId, // databaseId
+        appwriteMembersDataCollectionId, // collectionId
+        id, // documentId
+        { memberName: name, SL: sl, plan, startDate, endDate } // data (optional)
+      );
+
+      setShowModal(false);
+      toast.success("edited successfully!");
+    } catch (error) {
+      console.log(error);
+      toast.error("error in editMember");
+    }
+  };
 
   // check if the user is present or not
   useEffect(() => {
@@ -47,15 +82,31 @@ function ContextProvider({ children }) {
 
   const checkUserStatus = async () => {
     try {
-      setLoading(true);
       const accDetails = await account.get();
       setCurrUser(accDetails);
     } catch (error) {
       setCurrUser(null);
       console.log("user not loggedin or session time out");
       console.log(error);
+    }
+  };
+
+  // function to getAllMembers
+  const getAllMembers = async () => {
+    const databases = new Databases(client);
+
+    try {
+      const result = await databases.listDocuments(
+        appwriteMsFitnessDatabaseId, // databaseId
+        appwriteMembersDataCollectionId // collectionId
+      );
+      setLoadingState(true);
+      setAllMembersData(result.documents);
+    } catch (error) {
+      console.log(error);
+      toast.error("error in getAllmembers");
     } finally {
-      setLoading(false);
+      setLoadingState(false);
     }
   };
 
@@ -64,11 +115,19 @@ function ContextProvider({ children }) {
       value={{
         currUser,
         setCurrUser,
-        loading,
+        loadingState,
         client,
         appwriteMsFitnessDatabaseId,
         appwriteMembersDataCollectionId,
         loginUser,
+        showModal,
+        setShowModal,
+        editingData,
+        setEditingData,
+        handleEditingFormData,
+        editMember,
+        getAllMembers,
+        allMembersData,
       }}
     >
       {children}

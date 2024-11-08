@@ -21,6 +21,7 @@ import ProtectedRoute from "./Auth/ProtectedRoute";
 import TableDataComponent from "./TableDataComponent";
 import TableDataRow from "./TableDataRow";
 import StatusComponent from "./StatusComponent";
+import CustomForm from "./reUsables/CustomForm";
 
 export {
   Hero,
@@ -46,4 +47,5 @@ export {
   TableDataComponent,
   TableDataRow,
   StatusComponent,
+  CustomForm,
 };

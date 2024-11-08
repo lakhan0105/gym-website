@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useMyContext } from "./Context/ContextProvider";
 import TableDataRow from "./TableDataRow";
 
-function TableDataComponent({ handleAddNewMember }) {
-  //   const [loadingState, setloadingState] = useState(true);
+function TableDataComponent() {
   const { getAllMembers, loadingState, allMembersData } = useMyContext();
 
   useEffect(() => {
@@ -13,6 +12,10 @@ function TableDataComponent({ handleAddNewMember }) {
   // logic to display loading text
   if (loadingState) {
     return <h2 className="text-center text-xl">Loading...</h2>;
+  }
+
+  if (allMembersData.length === 0) {
+    return <h2 className="text-center text-xl">Sorry, no user found ;(</h2>;
   }
 
   return (

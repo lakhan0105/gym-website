@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
-  const { currUser, setCurrUser, client } = useMyContext();
+  const { currUser, setCurrUser, client, loginUser } = useMyContext();
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   // when this page loads, check if the user is already loggedin, if yes then take him to "/"
@@ -28,26 +28,7 @@ function Login() {
   // handleLogin
   async function handleLogin(e) {
     e.preventDefault();
-    const account = new Account(client);
-    const { email, password } = formData;
-
-    try {
-      const result = await account.createEmailPasswordSession(
-        email, // email
-        password // password
-      );
-
-      if (result) {
-        setCurrUser({
-          userId: result?.userId,
-          userEmail: result?.providerUid,
-        });
-        toast.info("login successfull!");
-        navigate("/");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    loginUser(formData);
   }
 
   return (

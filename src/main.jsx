@@ -14,6 +14,7 @@ import {
   Dashboard,
   Landing,
   Login,
+  ProtectedRoute,
   RootLayout,
 } from "./Components/index.js";
 
@@ -26,18 +27,25 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Landing />}></Route>
       <Route path="/login" element={<Login />}></Route>
-      <Route path="/dashboard" element={<Dashboard />}></Route>
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      ></Route>
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ContextProvider>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
-      <ToastContainer />
-    </ContextProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <ContextProvider>
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+    <ToastContainer />
+  </ContextProvider>
+  /* </React.StrictMode> */
 );

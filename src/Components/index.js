@@ -16,6 +16,12 @@ import RootLayout from "./RootLayout";
 import ContextProvider from "./Context/ContextProvider";
 import FormRow from "./reUsables/FormRow";
 import LogoutBtn from "./Auth/LogoutBtn";
+import Modal from "./Modal";
+import ProtectedRoute from "./Auth/ProtectedRoute";
+import TableDataComponent from "./TableDataComponent";
+import TableDataRow from "./TableDataRow";
+import StatusComponent from "./StatusComponent";
+import CustomForm from "./reUsables/CustomForm";
 
 export {
   Hero,
@@ -36,4 +42,10 @@ export {
   ContextProvider,
   FormRow,
   LogoutBtn,
+  Modal,
+  ProtectedRoute,
+  TableDataComponent,
+  TableDataRow,
+  StatusComponent,
+  CustomForm,
 };

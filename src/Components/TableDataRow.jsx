@@ -9,21 +9,31 @@ function TableDataRow({ SL, $id, memberName, startDate, endDate, plan }) {
 
   const formattedStartDate = moment(startDate).format("ll");
   const formattedEndDate = moment(endDate).format("ll");
-  const [remDays, setRemDays] = useState(null);
+  const [remDays, setRemDays] = useState(0);
 
   // function to calculate remaining days
   function calcRemDays() {
     const today = moment();
+    const start = moment(startDate);
     const end = moment(endDate);
-    const diff = end.endOf("day").diff(today, "days");
 
-    // if diff<0, then return 0 or else return diff value
-    setRemDays(diff < 0 ? 0 : diff);
+    // if start is in the future then start-end
+    if (start.isAfter(today)) {
+      const diff = end.diff(start, "days");
+      setRemDays((prev) => {
+        return diff < 0 ? 0 : diff;
+      });
+    } else {
+      const diff = end.diff(today, "days");
+      setRemDays((prev) => {
+        return diff < 0 ? 0 : diff + 1;
+      });
+    }
   }
 
   useEffect(() => {
     calcRemDays();
-  }, []);
+  }, [startDate, endDate]);
 
   return (
     <div

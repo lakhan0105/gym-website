@@ -28,32 +28,30 @@ function Navbar({ toggleSidebar }) {
       <Logo />
       <Navlinks extraClass={"hidden md:block md:flex translate-x-[20%]"} />
 
-      {/* hamburger */}
-      <button
-        className="absolute md:hidden text-2xl right-1"
-        onClick={toggleSidebar}
-      >
-        <FaBars />
-      </button>
-
-      <div className="flex items-center gap-5">
-        {/* login link (show oly if user is not loggedin) */}
-        {!currUser && (
+      <div className="flex justify-center items-center gap-x-2">
+        <div className="flex items-center gap-5">
+          {/* login link (show oly if user is not loggedin) */}
+          {!currUser && (
           <NavLink
-            to={"/login"}
-            className={"bg-orange-800 rounded text-base px-2 py-0.5"}
-          >
-            admin login
-          </NavLink>
-        )}
+              to={"/login"}
+              className={"bg-orange-800 rounded text-base px-2 py-0.5"}
+            >
+              admin login
+            </NavLink>
+          )}
 
-        {/* BUTTONS CONTAINER (admin buttons)  */}
-        {currUser && (
-          <div className="hidden md:flex">
-            <DashboardBtn />
-            <LogoutBtn />
-          </div>
-        )}
+          {/* BUTTONS CONTAINER (admin buttons)  */}
+          {currUser && (
+            <div className="hidden md:flex">
+              <DashboardBtn />
+              <LogoutBtn />
+            </div>
+          )}
+        </div>
+        {/* hamburger */}
+        <button className=" md:hidden text-2xl right-1" onClick={toggleSidebar}>
+          <FaBars />
+        </button>
       </div>
     </div>
   );

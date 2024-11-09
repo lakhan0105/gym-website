@@ -88,7 +88,7 @@ function ContextProvider({ children }) {
       setCurrUser(accDetails);
     } catch (error) {
       setCurrUser(null);
-      console.log("user not loggedin or session time out");
+      console.log("user not loggedin or session time out! Please login");
       console.log(error);
     }
   };

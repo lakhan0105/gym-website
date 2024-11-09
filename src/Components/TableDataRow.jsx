@@ -13,6 +13,7 @@ function TableDataRow({ SL, $id, memberName, startDate, endDate, plan }) {
 
   // function to calculate remaining days
   function calcRemDays() {
+    console.log(startDate, endDate);
     const today = moment();
     const start = moment(startDate);
     const end = moment(endDate);

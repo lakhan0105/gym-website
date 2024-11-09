@@ -41,7 +41,9 @@ function Navbar({ toggleSidebar }) {
         {!currUser && (
           <NavLink
             to={"/login"}
-            className={"bg-orange-800 rounded text-base px-2 py-0.5"}
+            className={
+              "bg-orange-800 rounded text-base px-2 py-0.5 mr-5 md:mr-0"
+            }
           >
             admin login
           </NavLink>

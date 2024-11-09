@@ -4,6 +4,8 @@ const appwriteProjectId = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 const appwriteMsFitnessDatabaseId = import.meta.env.VITE_MS_FITNESS_DATABASE_ID;
 const appwriteMembersDataCollectionId = import.meta.env
   .VITE_MEMBERS_DATA_COLLECTION_ID;
+const countsDataCollectionId = import.meta.env.VITE_COUNTS_DATA_COLLECTION_ID;
+const totalMembersDocId = import.meta.env.VITE_TOTALMEMBERS_DOC_ID;
 
 import { Client, Account, Databases, Query } from "appwrite";
 import { addLS, getLS } from "../utils/localstorage";
@@ -25,6 +27,7 @@ function ContextProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
   const [editingData, setEditingData] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [totalMembersCount, setTotalMembersCount] = useState(null);
 
   // function to handleEditingFormData
   function handleEditingFormData(e) {
@@ -157,6 +160,41 @@ function ContextProvider({ children }) {
     }
   };
 
+  // function to get the total members in the gym
+  async function getTotalMembersCount() {
+    const databases = new Databases(client);
+
+    try {
+      const result = await databases.getDocument(
+        appwriteMsFitnessDatabaseId, // databaseId
+        countsDataCollectionId, // collectionId
+        totalMembersDocId // documentId
+      );
+      console.log(result);
+      setTotalMembersCount((prev) => result.TotalMembersCount);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // function to update the totalMembersCount in appwrite
+  async function updateTotalMembersCount(data) {
+    console.log("update the total count");
+    const databases = new Databases(client);
+    try {
+      const result = await databases.updateDocument(
+        appwriteMsFitnessDatabaseId, // databaseId
+        countsDataCollectionId, // collectionId
+        totalMembersDocId, // documentId
+        data // data (optional)
+        // ["read("any")"] // permissions (optional)
+      );
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <myContext.Provider
       value={{
@@ -178,6 +216,10 @@ function ContextProvider({ children }) {
         searchText,
         setSearchText,
         searchMembers,
+        totalMembersCount,
+        setTotalMembersCount,
+        updateTotalMembersCount,
+        getTotalMembersCount,
       }}
     >
       {children}

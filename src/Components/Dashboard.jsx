@@ -18,6 +18,10 @@ function Dashboard() {
     searchText,
     setSearchText,
     searchMembers,
+    getTotalMembersCount,
+    totalMembersCount,
+    setTotalMembersCount,
+    updateTotalMembersCount,
   } = useMyContext();
 
   // state to manage the input details of the new member inputs
@@ -65,6 +69,12 @@ function Dashboard() {
           startDate: "",
           endDate: "",
         });
+
+        setTotalMembersCount((prev) => {
+          const newCount = prev + 1;
+          updateTotalMembersCount({ TotalMembersCount: newCount });
+          return newCount;
+        });
       }
     } catch (error) {
       toast.error("error in creating a new document");
@@ -72,14 +82,21 @@ function Dashboard() {
     }
   }
 
+  useEffect(() => {
+    getTotalMembersCount();
+  }, []);
+
   return (
     <section className="relative w-full bg-[#F7F7F7] min-h-[calc(100vh-70px)] mt-[65px]">
       <div className="max-w-[1280px] m-auto pt-32">
         {/* container */}
         <div className="flex items-start gap-5">
           {/* (LEFT) */}
-          <div className=" bg-[#FFFFFF] rounded p-5 w-[200px] mt-14">
-            <h2>Filters</h2>
+          <div>
+            <div className=" bg-[#FFFFFF] rounded p-5 w-[230px] mt-14 text-center">
+              <h2>Total members enrolled</h2>
+              <h2 className="text-3xl">{totalMembersCount}</h2>
+            </div>
           </div>
 
           {/* (RIGHT) member details container */}

@@ -54,7 +54,7 @@ function Hero() {
 
         {/* arrow is relative to the join button (above) */}
         <span className="absolute bottom-[-70%] left-[50%] translate-x-[-50%] text-center text-white">
-          <a href="#services">
+          <a href="#stories">
             <FaArrowDown />
           </a>
         </span>

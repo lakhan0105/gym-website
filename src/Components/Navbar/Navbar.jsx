@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { LogoutBtn, Navlinks, Sociallinks } from "../index";
+import { DashboardBtn, LogoutBtn, Navlinks, Sociallinks } from "../index";
 
 import { FaBars } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
@@ -26,16 +26,17 @@ function Navbar({ toggleSidebar }) {
       className={`w-full fixed top-0 text-white text-xl z-50 h-[60px] px-3 flex items-center justify-between bg-${scrollDownColor}`}
     >
       <Logo />
-      <Navlinks extraClass={"hidden md:block md:flex"} />
+      <Navlinks extraClass={"hidden md:block md:flex translate-x-[20%]"} />
 
       {/* hamburger */}
-      <button className="md:hidden text-2xl" onClick={toggleSidebar}>
+      <button
+        className="absolute md:hidden text-2xl right-1"
+        onClick={toggleSidebar}
+      >
         <FaBars />
       </button>
 
       <div className="flex items-center gap-5">
-        <Sociallinks extraClass={"hidden md:block md:flex"} />
-
         {/* login link (show oly if user is not loggedin) */}
         {!currUser && (
           <NavLink
@@ -45,7 +46,14 @@ function Navbar({ toggleSidebar }) {
             admin login
           </NavLink>
         )}
-        <LogoutBtn />
+
+        {/* BUTTONS CONTAINER (admin buttons)  */}
+        {currUser && (
+          <div className="hidden md:flex">
+            <DashboardBtn />
+            <LogoutBtn />
+          </div>
+        )}
       </div>
     </div>
   );

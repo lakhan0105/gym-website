@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useMyContext } from "../Context/ContextProvider";
-import { addLS } from "../utils/localstorage";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Account } from "appwrite";

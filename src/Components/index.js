@@ -22,6 +22,7 @@ import TableDataComponent from "./TableDataComponent";
 import TableDataRow from "./TableDataRow";
 import StatusComponent from "./StatusComponent";
 import CustomForm from "./reUsables/CustomForm";
+import DashboardBtn from "./Navbar/DashboardBtn";
 
 export {
   Hero,
@@ -48,4 +49,5 @@ export {
   TableDataRow,
   StatusComponent,
   CustomForm,
+  DashboardBtn,
 };

@@ -48,9 +48,11 @@ function Hero() {
       </div>
 
       <div className="absolute bottom-[5%] left-[40%] md:left-[47%] z-30 cursor-pointer text-xl">
-        <button className="relative px-3 py-1 text-lg mt-8 bg-[#D32F2F] text-white hover:bg-[#B71C1C] uppercase font-semibold rounded">
-          Join now
-        </button>
+        <a href="#plans">
+          <button className="relative px-3 py-1 text-lg mt-8 bg-[#D32F2F] text-white hover:bg-[#B71C1C] uppercase font-semibold rounded">
+            Join now
+          </button>
+        </a>
 
         {/* arrow is relative to the join button (above) */}
         <span className="absolute bottom-[-70%] left-[50%] translate-x-[-50%] text-center text-white">

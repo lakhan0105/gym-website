@@ -21,7 +21,7 @@ const contactData = [
 const plansData = [
   {
     id: "0",
-    planPrice: 6500,
+    planPrice: 7999,
     planFeatures: [
       { id: "0", text: "unlimited access to gym" },
       { id: "1", text: "trainers" },
